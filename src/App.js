@@ -79,7 +79,7 @@ function App() {
   <div className="navbar-right">
     <button className="theme-toggle github-button" onClick={toggleTheme}>
       {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-    </button>
+    </button> &nbsp;
     <a
       href="https://github.com/itfeelsharsh/atominsight"
       className="github-button"
@@ -118,8 +118,12 @@ function App() {
             </div>
           </div>
         )}
-      </main>
+      </main><br></br>
+      <footer className="footer"> 
+        Made with ❤️ by <a href="https://itfeelsharsh.dev">Harsh Banker</a>
+      </footer>
     </div>
+    
   );
 }
 
