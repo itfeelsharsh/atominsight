@@ -81,7 +81,7 @@ function App() {
       {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
     </button>
     <a
-      href="https://github.com/your-repo"
+      href="https://github.com/itfeelsharsh/atominsight"
       className="github-button"
       target="_blank"
       rel="noopener noreferrer"
