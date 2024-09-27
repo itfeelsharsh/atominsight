@@ -316,6 +316,11 @@ body {
   border: 1px solid var(--border-color);
 }
 
+[data-theme="dark"] .search-bar {
+  color: var(--text-color);
+}
+
+
 /* Theme Toggle Button */
 .theme-toggle {
   background-color: var(--button-background);
@@ -384,4 +389,5 @@ body {
   .search-bar {
     margin-bottom: 10px;
   }
+  
 }
