@@ -50,7 +50,11 @@ function App() {
     return filteredElements.map((element) => (
       <div
         key={element.symbol}
-        className={`element-card ${element.category.toLowerCase()} position-${element.number}`}
+        className={`element-card ${element.category.toLowerCase()}`}
+        style={{
+          gridColumnStart: element.xpos,
+          gridRowStart: element.ypos,
+        }}
         onClick={() => handleElementClick(element)}
       >
         <div className="element-info">

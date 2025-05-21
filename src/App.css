@@ -83,19 +83,32 @@ body {
 
 .elements-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+  /* Define 18 columns for the periodic table groups */
+  grid-template-columns: repeat(18, 1fr);
+  /* Define 10 rows for periods, lanthanides, and actinides */
+  grid-template-rows: repeat(10, auto);
+  gap: 4px; /* Adjust gap between elements for a tighter layout */
+  padding: 8px; /* Adjust padding for the container */
+  /* margin-top: 20px; Removed as direct grid positioning is used */
+  min-width: 720px; /* Minimum width for the table before horizontal scroll is too much (18 cols * ~40px) */
+  overflow-x: auto; /* Enable horizontal scrolling if the table exceeds viewport width */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .element-card {
   background-color: var(--element-background);
-  border-radius: 12px;
-  padding: 15px;
+  border-radius: 8px; /* Slightly smaller border-radius */
+  padding: 8px; /* Reduced padding for a more compact card */
   text-align: center;
   box-shadow: var(--shadow);
   transition: transform 0.2s, background-color var(--transition-duration);
   cursor: pointer;
+  display: flex; /* Use flex to better control inner content alignment */
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  min-height: 70px; /* Ensure cards have a minimum height */
+  font-size: 0.8em; /* Base font size reduction for cards */
 }
 
 .element-card:hover {
@@ -110,20 +123,22 @@ body {
 }
 
 .atomic-number {
-  font-size: 0.9em;
+  font-size: 0.8em; /* Adjusted font size */
   color: var(--primary-color);
-  margin-bottom: 5px;
+  margin-bottom: 2px; /* Reduced margin */
 }
 
 .symbol {
-  font-size: 2em;
+  font-size: 1.6em; /* Adjusted font size */
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 2px; /* Reduced margin */
 }
 
 .name {
-  font-size: 0.9em;
+  font-size: 0.7em; /* Adjusted font size */
   color: var(--text-color);
+  word-break: break-word; /* Allow long names to wrap */
+  line-height: 1.2; /* Adjust line height for wrapped names */
 }
 
 .popup {
@@ -258,7 +273,35 @@ body {
   }
 
   .elements-container {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */ /* Maintained 18-column layout with scrolling */
+    gap: 2px; /* Further reduce gap on smaller screens */
+    padding: 2px 4px; /* Further reduce padding (top/bottom LR) */
+    min-width: 0; /* Allow container to shrink, scrolling will handle overflow */
+  }
+
+  .element-card {
+    padding: 2px; /* Further reduce padding for very compact cards */
+    min-height: 40px; /* Reduce min-height for smaller cards */
+    /* font-size: 0.7em; Removed as child elements now use px or rem for more control */
+    line-height: 1.1; /* Adjust line height for compact text */
+    /* Other properties like min-width: 0; display:flex; etc. are inherited or set previously */
+  }
+
+  .atomic-number {
+    font-size: 8px; /* Use small, fixed px for atomic number on mobile */
+    margin-bottom: 1px; /* Minimal margin */
+    /* color: var(--primary-color); Inherited or already set */
+  }
+
+  .symbol {
+    font-size: 11px; /* Use small, fixed px for symbol on mobile */
+    /* font-weight: bold; Inherited or already set */
+    margin-bottom: 1px; /* Minimal margin */
+  }
+
+  .name {
+    display: none; /* Hide element name on mobile cards to save critical space */
+                   /* Full name is available in the popup */
   }
 }
 
@@ -273,8 +316,6 @@ body {
     transform: scale(1);
   }
 }
-
-
 
 .element-card {
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color var(--transition-duration);
@@ -319,7 +360,6 @@ body {
 [data-theme="dark"] .search-bar {
   color: var(--text-color);
 }
-
 
 /* Theme Toggle Button */
 .theme-toggle {
