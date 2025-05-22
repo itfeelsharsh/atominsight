@@ -3,7 +3,7 @@ const elements = [
     symbol: "H",
     name: "Hydrogen",
     number: 1,
-    atomic_mass: 1.008,
+    atomic_mass: 1.008,   
     category: "nonmetal",
     summary:
       "Hydrogen is the lightest element and the most abundant chemical substance in the Universe, constituting roughly 75% of all normal matter by mass.",
