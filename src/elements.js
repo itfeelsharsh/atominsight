@@ -12,7 +12,7 @@ const elements = [
     wikipedia: "https://en.wikipedia.org/wiki/Hydrogen",
   },
   {
-    symbol: "He",
+    symbol: "He",   
     name: "Helium",
     number: 2,
     atomic_mass: 4.0026,
